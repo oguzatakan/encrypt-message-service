@@ -48,8 +48,20 @@ export const Message = ({ room, username }) => {
 
   return (
     <div className="message_root_div">
-      <span className="room_name">Room: {room} </span>
-      <span className="user_name">Welcome: {username} </span>
+      <div className="roomuser">
+        <span className="room_name" 
+              style={{paddingRight:30 , paddingLeft:14, paddingTop:4, paddingBottom:4, margin:12, borderRadius:20, borderColor:"white", fontSize:18}}>
+              <span style={{fontWeight:"bold"}}> Room : </span>
+              <span style={{color:"#efa985"}}>{room}</span>
+        </span>
+        
+        <span className="user_name" 
+              style={{paddingRight:30 , paddingLeft:14, paddingRight:14, paddingTop:4, paddingBottom:4, margin:12, borderRadius:20, fontSize:18}}> 
+              <span style={{fontWeight:"bold"}}> Welcome : </span>
+              <span style={{color:"#efa985"}}>{username}</span>
+        </span>
+      </div>
+      
       <div className="message_component">
         <MessageList username={username} messageList={messageList} />
         <form className="chat-input" onSubmit={(e) => sendMessage(e)}>
@@ -61,9 +73,9 @@ export const Message = ({ room, username }) => {
           />
           <button type="submit">
             {messageInput == "" ? (
-              <RiSendPlaneLine size={25} />
+              <RiSendPlaneLine color="white" size={25} />
             ) : (
-              <RiSendPlaneFill color="#2671ff" size={25} />
+              <RiSendPlaneFill color="white" size={25} />
             )}
           </button>
         </form>

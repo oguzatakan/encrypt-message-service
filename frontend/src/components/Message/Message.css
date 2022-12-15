@@ -1,32 +1,59 @@
+/*
+#5c4f82 - rgba(92,79,130,255)
+#4d426d - rgba(77,66,109,255) koyu mor
+#efa985 - rgba(239,169,133,255) turuncu
+#f1991a -241,153,27 turuncu koyu
+#e8e5f3 - rgba(232,229,243,255) lila
+#424042 - 66,64,66 gri
+#3cc6b7 - rgba(60,198,183,255) yeşil
+#3ba58b - rgba(59,165,139,255) koyu yeşil
+#226bab - rgba(34,107,171,255) mavi
+#ffffff - rgba(255,255,255,255)
+#cdc9d5 - rgba(205,201,213,255)
+*/
 .message_root_div {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    min-height: fit-content;
   }
+
+  .roomuser {
+    background: #5c4f82;
+    height: 28px;
+    display: flex;
+    align-items:flex-end;
+    justify-content: flex-end;
+
+  }
+
   .message_component {
     display: flex;
-    width: 90%;
-    min-width: 200px;
-    flex-direction: column;
-    justify-content: center;
+    height: 700px;
+    flex-direction:column;
+    justify-content: end;
     align-items: center;
-    background-color: #575757;
+    background-color: #322262;
+
   }
   
   .room_name {
-    margin: 20px 0px 10px 50px;
-    font-size: 28px;
-    font-weight: 700;
-    width: 100%;
-    text-align: start;
+    border-color: #e8e5f3;
+    border-width: 1px;
+    border-style:ridge;
+    font-size: 22px;
+    color: rgb(232,229,243);
+    background-color: #5c4f82;
+    
+    
   }
   
   .user_name {
-    font-size: 25px;
-    color: rgb(15, 77, 211);
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-size: 22px;
+    border-width: 1px;
+    border-style:ridge;
+    border-color:#e8e5f3;
+    color: rgb(232,229,243);
+    background-color: #5c4f82;
+    
   }
   
   .message_list {
@@ -35,7 +62,7 @@
     display: flex;
     overflow-y: scroll;
     flex-direction: column;
-    padding-top: 50px;
+    padding-top:26%;
   }
   
   .message_item_client {
@@ -64,7 +91,7 @@
   }
   
   .message_content_client {
-    background-color: rgb(79, 135, 255);
+    background-color: rgb(77,66,109,255);
     display: flex;
     padding: 10px;
     font-size: 19px;
@@ -83,7 +110,7 @@
   }
   
   .message_content_client_self {
-    background-color: rgb(15, 77, 211);
+    background-color: rgb(239,169,133);
     display: flex;
     padding: 10px;
     font-size: 19px;
@@ -93,8 +120,9 @@
     text-align: start;
     align-items: flex-end;
     color: white;
+    font-style: normal;
   }
-  
+
   .message_item_server {
     display: flex;
     justify-content: center;
@@ -116,7 +144,6 @@
     flex: 0 0 auto;
     height: 70px;
     width: 100%;
-    background: #40434e;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
   }
   .chat-input input {
@@ -126,11 +153,11 @@
     outline: 0 none;
     border: none;
     width: calc(100% - 100px);
-    color: white;
+    color: rgb(66,64,66);
     text-indent: 10px;
     font-size: 12pt;
-    padding: 0;
-    background: #40434e;
+    padding-left: 16px;
+    background: #ffffff;
   }
   
   .chat-input ::placeholder {
@@ -153,7 +180,7 @@
     float: right;
     outline: 0 none;
     border: none;
-    background: rgb(255, 255, 255);
+    background: rgb(60,198,183);
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -163,7 +190,7 @@
   }
   .chat-input input[good] + button {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-    background: #2671ff;
+    background: #2d21ae;
   }
   .chat-input input[good] + button:hover {
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
