@@ -1,9 +1,10 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import { Login } from "./components/Login/Login";
 import { useState } from "react";
 import { Message } from "./components/Message/Message";
 import spinner from './logincut.gif';
+import logo1 from './log2.png';
 
 function App() {
   const [username, setUsername] = useState("");
@@ -13,15 +14,15 @@ function App() {
   return (
     <>
       <div className="headertop">
-        <p style={{fontSize:26, color:"#e8e5f3"}}>Let'sMeet</p>
+        <img src={logo1} className="logo1" style={{width:70, justifyContent: 'center'}}/>
       </div>
       {!isLoggedIn && <div>
       <div className="headergif">
         <img src={spinner} alt="Spinner" />
       </div>
       <div className="title">
-        <h1 align="center"><strong>Welcome to Let'sMeet</strong></h1>
-        <p align="center" >With millions of users all over the world, Let'sMeet gives you the ability to connect with people no matter where you are.</p>
+        <h1 align="center" style={{marginBottom:14}}><strong>Welcome to Let'sMeet</strong></h1>
+        <p align="center" style={{marginBottom:14}}>With millions of users all over the world, Let'sMeet gives you the ability to connect with people no matter where you are.</p>
       </div>
       </div>}
   

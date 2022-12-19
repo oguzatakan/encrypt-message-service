@@ -6,6 +6,8 @@
 #e8e5f3 - rgba(232,229,243,255) lila
 #424042   66,64,66 gri
 #3cc6b7 - rgba(60,198,183,255) yeşil
+
+<p style={{fontSize:26, color:"#e8e5f3"}}>Let'sMeet</p>
 */
 
 .App {
@@ -42,23 +44,24 @@ body {
   background: #e8e5f3 ;
 }
 .headertop{
-  height: 30;
-  width: auto;
-  padding: 8px;
+  height: 20;
   padding-left: 16px;
   background: #5c4f82;
   font-weight: bold;
+  flex-direction: row;
 }
 .headergif{
-  height: 400px;
+  height: 340px;
   display: flex;
+  padding-bottom: 10px;
   justify-content: center;
 
 }
 .title p {
-  padding-top: 8px;
-  padding-bottom: 10px;
+  padding-top: px;
+  padding-bottom: 20px;
   font-size: 14px;
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {

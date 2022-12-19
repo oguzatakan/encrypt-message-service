@@ -10,6 +10,13 @@
 #226bab - rgba(34,107,171,255) mavi
 #ffffff - rgba(255,255,255,255)
 #cdc9d5 - rgba(205,201,213,255)
+
+
+<div style={{border:"1px black solid", width:202}}>
+            <button  style={{border:"2px", borderRadius:20, borderColor:"white", paddingLeft:14, paddingRight:14, paddingTop:4, paddingBottom:4, fontSize:16}}>SETTINGS</button>
+            <button style={{border:"2px", borderRadius:20, borderColor:"white", paddingLeft:14, paddingRight:14, paddingTop:4, paddingBottom:4, fontSize:16}}>LOG OUT</button>
+          </div> 
+
 */
 .message_root_div {
     flex-direction: column;
@@ -18,20 +25,30 @@
 
   .roomuser {
     background: #5c4f82;
-    height: 28px;
+    height: 40px;
     display: flex;
-    align-items:flex-end;
     justify-content: flex-end;
 
   }
 
   .message_component {
     display: flex;
-    height: 700px;
+    height: 708px;
     flex-direction:column;
     justify-content: end;
     align-items: center;
-    background-color: #322262;
+    background-size: 420px;
+    background-image: url("/Users/beydasoyseven/Desktop/encrypt-message-service-main/frontend/src/background.jpeg");
+
+  }
+  .message_input_comp {
+    display: flex;
+    min-width: 100%;
+    flex-direction:column;
+    justify-content: end;
+    align-items: center;
+    background-color: #5c4f82;
+    opacity: 0.96;
 
   }
   
@@ -111,6 +128,7 @@
   
   .message_content_client_self {
     background-color: rgb(239,169,133);
+    opacity: 0.96;
     display: flex;
     padding: 10px;
     font-size: 19px;
@@ -142,14 +160,14 @@
   
   .chat-input {
     flex: 0 0 auto;
-    height: 70px;
+    height: 63px;
     width: 100%;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
   }
   .chat-input input {
-    margin: 5px 20px 5px 20px;
-    height: 59px;
-    line-height: 60px;
+    margin: 8px 20px 8px 20px;
+    height: 46px;
+    line-height: 10px; 
     outline: 0 none;
     border: none;
     width: calc(100% - 100px);
@@ -198,3 +216,58 @@
   .chat-input input[good] + button path {
     fill: white;
   }
+
+  /* The sidepanel menu */
+  .sidepanel {
+    height: 250px; /* Specify a height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+  }
+  
+  /* The sidepanel links */
+  .sidepanel a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidepanel a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style the button that is used to open the sidepanel */
+  .openbtn {
+    font-size: 20px;
+    font-size: 28px;
+    min-width: 40px;
+    
+    cursor: pointer;
+    background-color: #5c4f82;
+    color: white;
+    border-top-left-radius: 12px;
+    border-style: none;
+  }
+  
+  .openbtn:hover {
+    background-color: #444;
+  } 

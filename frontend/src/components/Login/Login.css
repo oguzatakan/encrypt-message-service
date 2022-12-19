@@ -14,10 +14,10 @@
   }
   
   .login_form {
-    gap: 4px;
+    gap: 2px;
     width: 400px;
     display: flex;
-    margin-top: 6px;
+    margin-top: 4px;
     justify-content: center;
     padding: 18px;
     align-items: center;

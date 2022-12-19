@@ -46,39 +46,61 @@ export const Message = ({ room, username }) => {
     }
   };
 
+  /* Set the width of the sidebar to 250px (show it) */
+  function openNav() {
+    document.getElementById("mySidepanel").style.width = "250px";
+  }
+
+  /* Set the width of the sidebar to 0 (hide it) */
+  function closeNav() {
+    document.getElementById("mySidepanel").style.width = "0";
+  }
+
   return (
     <div className="message_root_div">
-      <div className="roomuser">
-        <span className="room_name" 
-              style={{paddingRight:30 , paddingLeft:14, paddingTop:4, paddingBottom:4, margin:12, borderRadius:20, borderColor:"white", fontSize:18}}>
-              <span style={{fontWeight:"bold"}}> Room : </span>
-              <span style={{color:"#efa985"}}>{room}</span>
-        </span>
-        
-        <span className="user_name" 
-              style={{paddingRight:30 , paddingLeft:14, paddingRight:14, paddingTop:4, paddingBottom:4, margin:12, borderRadius:20, fontSize:18}}> 
-              <span style={{fontWeight:"bold"}}> Welcome : </span>
-              <span style={{color:"#efa985"}}>{username}</span>
-        </span>
+      <div className="roomuser" style={{display:"flex", justifyContent:"space-between"}}>
+        <div style={{padding:8}}>
+          <span className="room_name" 
+                style={{paddingRight:30 , paddingLeft:14, paddingTop:4, paddingBottom:4, borderRadius:20, borderColor:"white", fontSize:12, marginRight:12, marginLeft:8}}>
+                <span style={{fontWeight:"bold"}}> Room : </span>
+                <span style={{color:"#efa985"}}>{room}</span>
+          </span>
+          
+          <span className="user_name" 
+                style={{paddingLeft:14, paddingRight:14, paddingTop:4, paddingBottom:4, borderRadius:20, fontSize:12}}> 
+                <span style={{fontWeight:"bold"}}> Welcome : </span>
+                <span style={{color:"#efa985"}}>{username}</span>
+          </span>
+        </div>
+
+        <div id="mySidepanel" class="sidepanel">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="#">SETTINGS</a>
+          <a href="#">LOG OUT</a>
+        </div>
+        <button class="openbtn" onclick="openNav()">&#9776;</button> 
       </div>
+      
       
       <div className="message_component">
         <MessageList username={username} messageList={messageList} />
-        <form className="chat-input" onSubmit={(e) => sendMessage(e)}>
-          <input
-            type="text"
-            value={messageInput}
-            onChange={(e) => setMessageInput(e.target.value)}
-            placeholder="Type a message"
-          />
-          <button type="submit">
-            {messageInput == "" ? (
-              <RiSendPlaneLine color="white" size={25} />
-            ) : (
-              <RiSendPlaneFill color="white" size={25} />
-            )}
-          </button>
-        </form>
+        <div className="message_input_comp">
+          <form className="chat-input" onSubmit={(e) => sendMessage(e)}>
+            <input
+              type="text"
+              value={messageInput}
+              onChange={(e) => setMessageInput(e.target.value)}
+              placeholder="Type a message"
+            />
+            <button type="submit">
+              {messageInput == "" ? (
+                <RiSendPlaneLine color="white" size={25} />
+              ) : (
+                <RiSendPlaneFill color="white" size={25} />
+              )}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
