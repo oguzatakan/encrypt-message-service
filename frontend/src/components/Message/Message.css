@@ -38,7 +38,7 @@
     justify-content: end;
     align-items: center;
     background-size: 420px;
-    background-image: url("/Users/beydasoyseven/Desktop/encrypt-message-service-main/frontend/src/background.jpeg");
+    background-image: url("../../../src/background.jpeg");
 
   }
   .message_input_comp {
