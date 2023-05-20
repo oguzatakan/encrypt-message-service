@@ -3,8 +3,8 @@ import { useSocket } from "../../customHooks/useSocket";
 import { RiSendPlaneLine, RiSendPlaneFill } from "react-icons/ri";
 import "./Message.css";
 import { MessageList } from "./MessageList";
-import { timeStampConverter } from "../../util/timeUtils";
 import { useFetch } from "../../customHooks/useFetch";
+import { playfairDecrypt, playfairEncrypt } from "../../util/encryptUtil";
 
 export const Message = ({ room, username }) => {
   const { isConnected, socketResponse, sendData } = useSocket(room, username);
@@ -31,13 +31,14 @@ export const Message = ({ room, username }) => {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    if (messageInput != "") {
+    if (messageInput !== "") {
+
       sendData({
         content: messageInput,
       });
       const time = ""; //timeStampConverter(Math.floor(Date.now() / 1000));
       addMessageToList({
-        content: messageInput,
+        content: playfairEncrypt(messageInput),
         username: username,
         createdDateTime: new Date(),
         messageType: "CLIENT",

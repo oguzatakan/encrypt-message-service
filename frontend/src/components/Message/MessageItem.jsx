@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { timeStampConverter } from "../../util/timeUtils";
 import "./Message.css";
+import { playfairDecrypt } from "../../util/encryptUtil";
 
 export const MessageItem = ({ message, username }) => {
   const type = message.messageType.toLowerCase();
@@ -13,7 +14,7 @@ export const MessageItem = ({ message, username }) => {
         <span className="message_item_username">{message.username}</span>
       )}
       <div className={"message_content_" + type + self}>
-        <span className="message_content_value">{message.content}</span>
+        <span className="message_content_value">{playfairDecrypt(message.content)}</span>
         <span>{time}</span>
       </div>
     </div>
