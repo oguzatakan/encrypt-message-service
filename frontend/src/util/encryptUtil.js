@@ -1,11 +1,12 @@
-const letters = "abcçdefgğhıijklmnoöprsştuüvwxyzq0123456789!?*%&/"
-
+const letters = "r1zolkaştvgjfçn7wudbhqmö%isycéxğpeıü"
+//const letters = "abcçdefgğhıijklmnoöprsştuüvwxyzq0123456789!?*%&/"
+// playfair için anahtar oluşturduk
 
 export function playfairDecrypt(ciphertext) {
     const matrix = buildMatrix(letters);
   
     const pairs = createPairs(ciphertext);
-    console.log(pairs)
+    console.log(pairs)   //şifreli metni çiftlere böler ve bu çiftleri bir diziye yerleştirir
     const decryptedPairs = pairs.map(pair => decryptPair(pair, matrix));
     return decryptedPairs.join("").replaceAll("w"," ").replaceAll("q","").replaceAll("x","");
   }
@@ -13,7 +14,7 @@ export function playfairDecrypt(ciphertext) {
   function decryptPair(pair, matrix) {
     let x1, y1, x2, y2;
     for (let i = 0; i < 6; i++) {
-      for (let j = 0; j < 8; j++) {
+      for (let j = 0; j < 6; j++) {
         if (matrix[i][j] === pair[0]) {
           x1 = i;
           y1 = j;
@@ -25,8 +26,8 @@ export function playfairDecrypt(ciphertext) {
     }
   
     if (x1 === x2) {
-      y1 = (y1 + 7) % 8;
-      y2 = (y2 + 7) % 8;
+      y1 = (y1 + 5) % 6;
+      y2 = (y2 + 5) % 6;
     } else if (y1 === y2) {
       x1 = (x1 + 5) % 6;
       x2 = (x2 + 5) % 6;
@@ -45,6 +46,7 @@ export function playfairEncrypt(plaintext) {
   
     plaintext = prepareText(plaintext);
     const pairs = createPairs(plaintext);
+    console.log(pairs);
 
     const encryptedPairs = pairs.map(pair => encryptPair(pair, matrix));
     console.log(pairs);
@@ -56,8 +58,8 @@ export function playfairEncrypt(plaintext) {
   
     for (let i = 0; i < 6; i++) {
       const row = [];
-      for (let j = 0; j < 8; j++) {
-        row.push(letters[i * 8 + j]);
+      for (let j = 0; j < 6; j++) {
+        row.push(letters[i * 6 + j]);
       }
       matrix.push(row);
     }
@@ -67,12 +69,15 @@ export function playfairEncrypt(plaintext) {
   
   function prepareText(plaintext) {
     plaintext = plaintext.toLowerCase();
-    plaintext = plaintext.replace(" ","w")
-    plaintext = plaintext.replace(/[^abcçdefgğhıijklmnoöprsştuüvwxyzq0123456789!?*%&/]/g, "");
+    plaintext = plaintext.replaceAll(" ","w")
+    plaintext = plaintext.replace(/[^r1zolkaştvgjfçn7wudbhqmö%isycéxğpeıü]/g, "");
+    //metindeki özel karakterleri, boşlukları veya diğer istenmeyen karakterleri temizler
     plaintext = plaintext.replace(/([a-zçğıöşü])\1+/g, "$1x$1");
+    //ardışık tekrar eden küçük harfleri "x" karakteri ile değiştirir ve metindeki tekrarları ayırır
     if (plaintext.length % 2 === 1) {
       plaintext += "q";
     }
+    //cümle tek karakterden oluşuyorsa onu çift karaketere tamamlar q koyarak
     return plaintext;
   }
   
@@ -89,7 +94,7 @@ export function playfairEncrypt(plaintext) {
   function encryptPair(pair, matrix) {
     let x1, y1, x2, y2;
   for (let i = 0; i < 6; i++) {
-    for (let j = 0; j < 8; j++) {
+    for (let j = 0; j < 6; j++) {
       if (matrix[i][j] === pair[0]) {
         x1 = i;
         y1 = j;
@@ -101,8 +106,8 @@ export function playfairEncrypt(plaintext) {
   }
 
   if (x1 === x2) {
-    y1 = (y1 + 1) % 8;
-    y2 = (y2 + 1) % 8;
+    y1 = (y1 + 1) % 6;
+    y2 = (y2 + 1) % 6;
   } else if (y1 === y2) {
     x1 = (x1 + 1) % 6;
     x2 = (x2 + 1) % 6;

@@ -14,8 +14,9 @@ export const MessageItem = ({ message, username }) => {
         <span className="message_item_username">{message.username}</span>
       )}
       <div className={"message_content_" + type + self}>
-        <span className="message_content_value">{playfairDecrypt(message.content)}</span>
-        <span>{time}</span>
+        <span className="message_content_value"
+        style={{fontSize:18}}>{playfairDecrypt(message.content)}</span>
+        <span style={{fontSize:14}}>{time}</span>
       </div>
     </div>
   );

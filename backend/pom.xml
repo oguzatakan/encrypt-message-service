@@ -15,7 +15,7 @@
 	<description>Encrypt Message Service for Final Project</description>
 	<properties>
 		<java.version>11</java.version>
-		<netty-socketio.version>1.7.17</netty-socketio.version>
+		<netty-socketio.version>1.7.23</netty-socketio.version>
 	</properties>
 	<dependencies>
 		<dependency>
