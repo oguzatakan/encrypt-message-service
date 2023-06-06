@@ -1,4 +1,6 @@
-const letters = "r1zolkaştvgjfçn7wudbhqmö%isycéxğpeıü"
+//const letters = "r1zolkaştvgjfçn7wudbhqmö%isycéxğpeıü"
+//anahtarımız beydaatakanalper
+const letters = "beydatknlprcçfgğhıijmoösşuüvwxzqé%17"
 //const letters = "abcçdefgğhıijklmnoöprsştuüvwxyzq0123456789!?*%&/"
 // playfair için anahtar oluşturduk
 
