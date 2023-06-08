@@ -5,6 +5,7 @@ import "./Message.css";
 import { MessageList } from "./MessageList";
 import { useFetch } from "../../customHooks/useFetch";
 import { playfairDecrypt, playfairEncrypt } from "../../util/encryptUtil";
+import {ImLock, ImUnlocked} from "react-icons/im";
 
 export const Message = ({ room, username }) => {
   const { isConnected, socketResponse, sendData } = useSocket(room, username);
@@ -73,13 +74,16 @@ export const Message = ({ room, username }) => {
                 <span style={{color:"#efa985"}}>{username}</span>
           </span>
         </div>
-
-        <div id="mySidepanel" class="sidepanel">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="#">SETTINGS</a>
-          <a href="#">LOG OUT</a>
-        </div>
+        <div className="playfairandslide">
+          <button class="playfairBtn" onclick="playfairBtn()" startIcon={<ImLock/>}
+            style={{margin:6, padding:9, borderRadius:20, borderColor:"#3cc6b7" ,background:"#3cc6b7",color:"white"}}><ImLock/><ImUnlocked></ImUnlocked>&#0000;</button>
+          <div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">SETTINGS</a>
+            <a href="#">LOG OUT</a>
+          </div>
         <button class="openbtn" onclick="openNav()">&#9776;</button> 
+        </div>
       </div>
       
       
@@ -102,6 +106,11 @@ export const Message = ({ room, username }) => {
             </button>
           </form>
         </div>
+      </div>
+      
+      <div className="garbage">
+        <p style={{color:"#5c4f82", opacity:0, fontSize:20}}>g</p>
+
       </div>
     </div>
   );

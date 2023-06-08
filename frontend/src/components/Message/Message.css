@@ -20,7 +20,7 @@
 */
 .message_root_div {
     flex-direction: column;
-    min-height: fit-content;
+    height:auto;
   }
 
   .roomuser {
@@ -33,9 +33,9 @@
 
   .message_component {
     display: flex;
-    height: 708px;
+    height: 760px;
     flex-direction:column;
-    justify-content: end;
+    justify-content:end;
     align-items: center;
     background-size: 420px;
     background-image: url("../../../src/background.jpeg");
@@ -51,6 +51,15 @@
     opacity: 0.96;
 
   }
+  .garbage{
+    display: flex;
+    min-width: 100%;
+    flex-direction:column;
+    justify-content: end;
+    align-items: center;
+    background-color: #5c4f82;
+    opacity: 0.96;
+  }
   
   .room_name {
     border-color: #e8e5f3;
@@ -59,7 +68,6 @@
     font-size: 22px;
     color: rgb(232,229,243);
     background-color: #5c4f82;
-    
     
   }
   
